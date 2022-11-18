@@ -5,7 +5,7 @@ Sistema de gestión de una inmobiliaria.
 
 - Clonar el repositorio
 ```
- git clone https://github.com/taroubghfhf/inmobiliaria.git
+ git clone https://github.com/DAngello-Garcia/inmobiliaria.git
 ```
 - Ingresar al directorio del repositorio
 ```
