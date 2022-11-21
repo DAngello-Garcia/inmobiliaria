@@ -25,6 +25,11 @@ public class Usuario {
         this.estado = estado;
     }
 
+    public Usuario(String correo, String clave) {
+        this.correo = correo;
+        this.clave = clave;
+    }
+
     public int registrarUsuario(int rol) {
         try{
             Conexion cx =  new Conexion();
@@ -139,6 +144,32 @@ public class Usuario {
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public int login() {
+        try{
+            if(consultarUsuario(this.correo) != 0) {
+                Conexion cx =  new Conexion();
+                Connection con = cx.getConexion();
+                int id = 0;
+
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("SELECT id_rol FROM usuario WHERE email = '"+this.correo+"' AND password = '"+this.clave+"'");
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
+                rs.close();
+                st.close();
+
+                con.close();
+
+                return id;
+            }
+            return 0;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return 0;
         }
     }
 }
