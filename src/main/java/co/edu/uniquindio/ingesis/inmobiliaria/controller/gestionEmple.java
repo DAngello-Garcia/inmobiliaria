@@ -1,5 +1,6 @@
 package co.edu.uniquindio.ingesis.inmobiliaria.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -33,6 +34,7 @@ public class gestionEmple {
         }
     }*/
 
-    public void actualizar(MouseEvent mouseEvent) {
+    public void registrar(ActionEvent actionEvent) {
+
     }
 }

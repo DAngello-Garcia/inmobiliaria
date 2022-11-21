@@ -13,7 +13,7 @@ import java.io.IOException;
 public class VistaInicio {
 
     @FXML
-    Button btnIngresar;
+    private Button btnIngresar;
     public void ingresar(ActionEvent actionEvent) throws IOException {
         Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("login.fxml"));
         Scene scene = new Scene(parent, 1280, 720);
