@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.Admin">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.controller.VistaAdmin">
    <children>
       <Pane prefHeight="450.0" prefWidth="700.0" styleClass="background-image-vista-admin" stylesheets="@../../../../../style/styles.css">
          <children>

@@ -74,7 +74,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                co.edu.uniquindio.ingesis.inmobiliaria/co.edu.uniquindio.ingesis.inmobiliaria.HelloApplication
+                                co.edu.uniquindio.ingesis.inmobiliaria/co.edu.uniquindio.ingesis.inmobiliaria.Inmobiliaria
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
