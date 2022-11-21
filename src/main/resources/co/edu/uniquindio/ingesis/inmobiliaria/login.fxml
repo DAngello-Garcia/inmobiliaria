@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.Login">
    <children>
       <Pane prefHeight="720.0" prefWidth="1280.0" styleClass="background-image-login" stylesheets="@../../../../../style/styles.css">
          <children>
-            <TextField fx:id="txtCorreo" layoutX="227.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="326.0" />
-            <TextArea fx:id="txtPassword" layoutX="231.0" layoutY="260.0" prefHeight="44.0" prefWidth="326.0" />
-            <Button fx:id="btnLogin" layoutX="294.0" layoutY="425.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="187.0" text="Button" />
-            <Button fx:id="btnOlvidar" layoutX="294.0" layoutY="652.0" mnemonicParsing="false" text="Button" />
+            <TextField fx:id="txtCorreo" layoutX="227.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="259.0" promptText="Escribe tu email" />
+            <TextArea fx:id="txtPassword" layoutX="231.0" layoutY="260.0" prefHeight="35.0" prefWidth="259.0" promptText="Escribe tu contraseña" />
+            <Button fx:id="btnLogin" layoutX="253.0" layoutY="347.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="187.0" text="Olvide mi contraseña" textAlignment="CENTER" />
+            <Button fx:id="btnOlvidar" layoutX="253.0" layoutY="585.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="114.0" text="Entrar" />
+            <Label layoutX="127.0" layoutY="167.0" prefHeight="26.0" prefWidth="120.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="99.0" layoutY="269.0" prefHeight="26.0" prefWidth="120.0" text="Contraseña" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="260.0" layoutY="25.0" prefHeight="35.0" prefWidth="120.0" text="Inicia sesión" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
