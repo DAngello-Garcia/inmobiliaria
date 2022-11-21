@@ -10,7 +10,7 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background-image-gestion-empleado" stylesheets="@../../../../../style/styles.css">
          <children>
-            <Button layoutX="430.0" layoutY="43.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Registrar nuevo empledo">
+            <Button fx:id="btnRegistrar" layoutX="430.0" layoutY="43.0" mnemonicParsing="false" onAction="#registrar" prefHeight="30.0" prefWidth="150.0" text="Registrar nuevo empledo">
                <font>
                   <Font name="Berlin Sans FB" size="12.0" />
                </font>

@@ -17,13 +17,13 @@ import java.io.IOException;
 public class Login {
 
     @FXML
-    TextField txtCorreo;
+    private TextField txtCorreo;
     @FXML
-    TextField txtContra;
+    private TextField txtContra;
     @FXML
-    Button btnLogin;
+    private Button btnLogin;
     @FXML
-    Button btnOlvidar;
+    private Button btnOlvidar;
 
 
     public void login(ActionEvent actionEvent) throws IOException {
