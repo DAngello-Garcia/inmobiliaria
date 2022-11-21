@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.RegistrarPropiedad">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background-image-registrar-propiedad" stylesheets="@../../../../../style/styles.css" />
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background-image-registrar-propiedad" stylesheets="@../../../../../style/styles.css">
+         <children>
+            <TextField layoutX="151.0" layoutY="86.0" promptText="Escribe el identificador" />
+            <TextField layoutX="151.0" layoutY="130.0" promptText="Escribe la dirección" />
+            <TextField layoutX="151.0" layoutY="210.0" promptText="Escribe el precio" />
+            <TextField layoutX="151.0" layoutY="246.0" promptText="Escribe las areas" />
+            <TextField layoutX="151.0" layoutY="288.0" promptText="Escribe las unidades" />
+            <ComboBox layoutX="150.0" layoutY="168.0" prefWidth="150.0" promptText="Elige la disposición" />
+            <ComboBox layoutX="150.0" layoutY="323.0" prefWidth="150.0" promptText="Elige el tipo" />
+         </children></Pane>
    </children>
 </AnchorPane>
