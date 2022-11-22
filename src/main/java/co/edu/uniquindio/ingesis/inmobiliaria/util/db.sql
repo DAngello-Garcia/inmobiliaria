@@ -154,7 +154,6 @@ create table historial_propiedad
             references cliente
 );
 
-
 insert into rol (tipo_rol)
 values ('Admin');
 
