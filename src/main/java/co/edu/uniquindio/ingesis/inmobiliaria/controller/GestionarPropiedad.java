@@ -87,6 +87,20 @@ public class GestionarPropiedad {
         checkBalcon.setVisible(false);
         checkAscensor.setVisible(false);
         comboTipoLote.setVisible(false);
+        txtNumeroBanos.setVisible(false);
+        txtMaterial.setVisible(false);
+        txtNumeroPisos.setVisible(false);
+        txtPiso.setVisible(false);
+        txtValorAdministracion.setVisible(false);
+        txtNumeroParqueaderos.setVisible(false);
+        lbNumHab.setVisible(false);
+        lbNumBa.setVisible(false);
+        lbMaterial.setVisible(false);
+        lablNumPisos.setVisible(false);
+        lblPiso.setVisible(false);
+        lbValorAdmin.setVisible(false);
+        lblNumPar.setVisible(false);
+        lbTipo.setVisible(false);
     }
 
     @FXML
