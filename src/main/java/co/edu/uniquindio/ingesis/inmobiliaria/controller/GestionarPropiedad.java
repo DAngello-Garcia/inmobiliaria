@@ -1,5 +1,6 @@
 package co.edu.uniquindio.ingesis.inmobiliaria.controller;
 
+import co.edu.uniquindio.ingesis.inmobiliaria.model.Propiedad;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.layout.GridPane;
+
+import java.util.List;
 
 public class GestionarPropiedad {
     @FXML
@@ -101,6 +104,20 @@ public class GestionarPropiedad {
         lbValorAdmin.setVisible(false);
         lblNumPar.setVisible(false);
         lbTipo.setVisible(false);
+        llenarTabla(INSTANCE.getDiplomado().buscar(null, null, null));
+        colNumeroIdentificacion.setCellValueFactory(new PropertyValueFactory<>("numeroIdentificacion"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
+        tblEstudiantes.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> llenarCampos(newValue));
+        tfNumeroIdentificacion.setTextFormatter(new TextFormatter<>(TextFormatterUtil::integerFormat));
+        tfNombre.setTextFormatter(new TextFormatter<>(TextFormatterUtil::upperCaseFormat));
+        cbGenero.setItems( FXCollections.observableArrayList(Genero.values()) );
+    }
+
+    private void llenarTabla(List<Propiedad> propiedades) {
+        tblEstudiantes.setItems(FXCollections.observableArrayList(propiedades));
+        tblEstudiantes.refresh();
     }
 
     @FXML
