@@ -25,6 +25,10 @@ public class Usuario {
         this.estado = estado;
     }
 
+    public Usuario(String correo) {
+        this.correo = correo;
+    }
+
     public Usuario(String correo, String clave) {
         this.correo = correo;
         this.clave = clave;
@@ -55,7 +59,7 @@ public class Usuario {
         }
     }
 
-    public int consultarUsuario(String correo) {
+    public int consultarIdUsuario(String correo) {
         try{
             Conexion cx =  new Conexion();
             Connection con = cx.getConexion();
@@ -99,48 +103,49 @@ public class Usuario {
         }
     }
 
-    public String recuperarClave(String correo, String frase) {
+    public boolean cambiarClave(String correo, String clave) {
         try{
-            if(consultarUsuario(correo) > 0 && verificarFrase(correo, frase)) {
+            if(consultarEstadoUsuario(correo)) {
                 Conexion cx =  new Conexion();
                 Connection con = cx.getConexion();
-                String clave = "";
 
                 Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("SELECT password FROM usuario WHERE email = '"+correo+"'");
-                while (rs.next()) {
-                    clave = rs.getString(1);
-                }
+                ResultSet rs = st.executeQuery("UPDATE usuario SET password = '"+clave+"' WHERE email = '"+correo+"'");
                 rs.close();
                 st.close();
 
                 con.close();
-                return clave;
+                System.out.println("cambiar");
+                return true;
             }
-            return "";
+            System.out.println("cambiar fuera");
+            return false;
         }catch(Exception e){
             System.out.println(e.getMessage());
-            return "";
+            return false;
         }
     }
 
     public boolean verificarFrase(String correo, String frase) {
         try{
-            Conexion cx =  new Conexion();
-            Connection con = cx.getConexion();
-            String frase_db = "";
+            if(consultarEstadoUsuario(correo)) {
+                Conexion cx =  new Conexion();
+                Connection con = cx.getConexion();
+                String frase_db = "";
 
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT frase FROM usuario WHERE email = '"+correo+"'");
-            while (rs.next()) {
-                frase_db += rs.getString(1);
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("SELECT frase FROM usuario WHERE email = '"+correo+"'");
+                while (rs.next()) {
+                    frase_db += rs.getString(1);
+                }
+                rs.close();
+                st.close();
+
+                con.close();
+
+                return frase_db.equals(frase);
             }
-            rs.close();
-            st.close();
-
-            con.close();
-
-            return frase_db.equals(frase);
+            return false;
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
@@ -149,7 +154,7 @@ public class Usuario {
 
     public int login() {
         try{
-            if(consultarUsuario(this.correo) != 0) {
+            if(consultarIdUsuario(this.correo) != 0) {
                 Conexion cx =  new Conexion();
                 Connection con = cx.getConexion();
                 int id = 0;

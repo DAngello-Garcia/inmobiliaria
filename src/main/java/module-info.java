@@ -3,6 +3,7 @@ module co.edu.uniquindio.ingesis.inmobiliaria {
     requires javafx.fxml;
     requires lombok;
     requires java.sql;
+    requires java.desktop;
 
 
     opens co.edu.uniquindio.ingesis.inmobiliaria to javafx.fxml;
