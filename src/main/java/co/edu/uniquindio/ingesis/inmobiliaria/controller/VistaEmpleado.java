@@ -21,7 +21,7 @@ public class VistaEmpleado {
     @FXML
     Button btnPropiedadNoDispo;
     public void registrarPropiedad(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("vista-empleado.fxml"));
+        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("registrar-propiedad.fxml"));
         Scene scene = new Scene(parent, 1280, 720);
         Stage stage = new Stage();
         stage.setTitle("Registrar propiedad");
@@ -32,7 +32,7 @@ public class VistaEmpleado {
     }
 
     public void propiedadDisponible(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("vista-empleado.fxml"));
+        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("propiedades-disponibles.fxml"));
         Scene scene = new Scene(parent, 1280, 720);
         Stage stage = new Stage();
         stage.setTitle("Propiedades disponibles");
@@ -43,7 +43,7 @@ public class VistaEmpleado {
     }
 
     public void propiedadNoDisponible(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("vista-empleado.fxml"));
+        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("propiedades-no-disponibles.fxml"));
         Scene scene = new Scene(parent, 1280, 720);
         Stage stage = new Stage();
         stage.setTitle("Propiedades no disponibles");

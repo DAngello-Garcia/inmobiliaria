@@ -14,6 +14,8 @@ public class VistaInicio {
 
     @FXML
     private Button btnIngresar;
+    @FXML
+    private Button btnIr;
     public void ingresar(ActionEvent actionEvent) throws IOException {
         Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("login.fxml"));
         Scene scene = new Scene(parent, 1280, 720);
@@ -22,6 +24,17 @@ public class VistaInicio {
         stage.setScene(scene);
         stage.initOwner(btnIngresar.getScene().getWindow());
         btnIngresar.getScene().getWindow().hide();
+        stage.show();
+    }
+
+    public void irOtra(ActionEvent actionEvent) throws IOException {
+        Parent parent = FXMLLoader.load(Inmobiliaria.class.getResource("registrar-propiedad.fxml"));
+        Scene scene = new Scene(parent, 1280, 720);
+        Stage stage = new Stage();
+        stage.setTitle("Principal");
+        stage.setScene(scene);
+        stage.initOwner(btnIr.getScene().getWindow());
+        btnIr.getScene().getWindow().hide();
         stage.show();
     }
 }
