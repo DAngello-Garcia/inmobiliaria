@@ -81,6 +81,15 @@ public class GestionarPropiedad {
         ObservableList<String> tipos = FXCollections.observableArrayList("Apartamento", "Bodega", "Casa", "Chalet", "Edificio", "Lote", "Parqueadero");
         txtTipo.setItems(tipos);
         txtNumeroHabitaciones.setVisible(false);
+        checkAlcantarillado.setVisible(false);
+        checkAguaPotable.setVisible(false);
+        checkPozoSeptico.setVisible(false);
+        checkInternet.setVisible(false);
+        checkEnergiaElectrica.setVisible(false);
+        checkGasDomiciliario.setVisible(false);
+        checkBalcon.setVisible(false);
+        checkAscensor.setVisible(false);
+        comboTipoLote.setVisible(false);
     }
 
     @FXML
