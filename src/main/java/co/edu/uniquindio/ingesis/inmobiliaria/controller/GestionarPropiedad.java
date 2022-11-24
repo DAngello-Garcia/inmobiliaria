@@ -104,7 +104,7 @@ public class GestionarPropiedad {
         lbValorAdmin.setVisible(false);
         lblNumPar.setVisible(false);
         lbTipo.setVisible(false);
-        llenarTabla(INSTANCE.getDiplomado().buscar(null, null, null));
+        /*llenarTabla(INSTANCE.getDiplomado().buscar(null, null, null));
         colNumeroIdentificacion.setCellValueFactory(new PropertyValueFactory<>("numeroIdentificacion"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
@@ -112,19 +112,19 @@ public class GestionarPropiedad {
                 .addListener((observable, oldValue, newValue) -> llenarCampos(newValue));
         tfNumeroIdentificacion.setTextFormatter(new TextFormatter<>(TextFormatterUtil::integerFormat));
         tfNombre.setTextFormatter(new TextFormatter<>(TextFormatterUtil::upperCaseFormat));
-        cbGenero.setItems( FXCollections.observableArrayList(Genero.values()) );
+        cbGenero.setItems( FXCollections.observableArrayList(Genero.values()) );*/
     }
 
     private void llenarTabla(List<Propiedad> propiedades) {
-        tblEstudiantes.setItems(FXCollections.observableArrayList(propiedades));
-        tblEstudiantes.refresh();
+        /*tblEstudiantes.setItems(FXCollections.observableArrayList(propiedades));
+        tblEstudiantes.refresh();*/
     }
 
     private void limpiarCampos() {
-        tfNumeroIdentificacion.setText("");
+        /*tfNumeroIdentificacion.setText("");
         tfNombre.setText("");
         cbGenero.setValue(null);
-        lbNotas.setText("");
+        lbNotas.setText("");*/
     }
 
     @FXML

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -119,27 +121,30 @@ public class Administrador extends Persona{
         }
     }
 
-    public void consultarEmpleados() {
+    public List<Empleado> consultarEmpleados() {
         try{
+            List<Empleado> e = new ArrayList<>();
             Conexion cx =  new Conexion();
             Connection con = cx.getConexion();
 
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT id as documento, nombre, celular FROM empleado");
+            ResultSet rs = st.executeQuery("SELECT u.email, e.id, e.nombre, e.celular\n" +
+                    "FROM usuario u\n" +
+                    "         INNER JOIN empleado e on u.id = e.id_usuario\n" +
+                    "WHERE u.estado = 'true'");
             while (rs.next()) {
-                int documento = rs.getInt(1);
-                String nombre = rs.getString(2);
-                String celular = rs.getString(3);
-//                Empleado empleado = new Empleado(nombre, documento, celular);
-//                empleados.add(empleado);
-                System.out.println("Documento: "+documento+", Nombre: "+nombre+", Celular: "+celular);
+                Usuario u = new Usuario(rs.getString(1));
+                Empleado em = new Empleado(rs.getString(3), rs.getInt(2), rs.getString(4), u);
+                e.add(em);
             }
             rs.close();
             st.close();
 
             con.close();
+            return e;
         }catch(Exception e){
             System.out.println(e.getMessage());
+            return null;
         }
     }
 }
