@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -103,7 +105,7 @@ public class Apartamento extends Vivienda {
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "id_propietario= "+ this.getPropietario().getDocumento() +", " +
+                        " id_propietario= "+ this.getPropietario().getDocumento() +", " +
                         "id_cliente= "+ this.getCliente().getDocumento() +", " +
                         "fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
@@ -139,7 +141,7 @@ public class Apartamento extends Vivienda {
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "fecha_modificacion='"+this.getFechaModificacion()+"' " +
+                        " fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
 
                 st2.executeUpdate();
@@ -176,6 +178,36 @@ public class Apartamento extends Vivienda {
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public List<Apartamento> devolverApartamentos(String disponibilidad) {
+        try{
+            List<Apartamento> apt = new ArrayList<>();
+            Conexion cx =  new Conexion();
+            Connection con = cx.getConexion();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area, \n" +
+                    "       v.numero_habitaciones, v.numero_banos, v.material,\n" +
+                    "       a.balcon, a.ascensor, a.piso, a.valor_administracion, a.numero_parqueaderos\n" +
+                    "FROM propiedad p\n" +
+                    "         INNER JOIN vivienda v ON v.id_propiedad = p.id\n" +
+                    "         INNER JOIN apartamento a ON a.id_vivienda = v.id\n" +
+                    "WHERE p.disponible = '"+disponibilidad+"'");
+            while (rs.next()) {
+                DisposicionPropiedad dp = DisposicionPropiedad.valueOf(rs.getString(3));
+                TipoArea ta = TipoArea.valueOf(rs.getString(5));
+                Apartamento a = new Apartamento("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta, rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getBoolean(9), rs.getBoolean(10), rs.getInt(11), rs.getFloat(12), rs.getInt(13));
+                apt.add(a);
+            }
+            rs.close();
+            st.close();
+
+            con.close();
+            return apt;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

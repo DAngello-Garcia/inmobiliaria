@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -92,7 +94,7 @@ public class Bodega extends Propiedad {
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "id_propietario= "+ this.getPropietario().getDocumento() +", " +
+                        " id_propietario= "+ this.getPropietario().getDocumento() +", " +
                         "id_cliente= "+ this.getCliente().getDocumento() +", " +
                         "fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
@@ -128,7 +130,7 @@ public class Bodega extends Propiedad {
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "fecha_modificacion='"+this.getFechaModificacion()+"' " +
+                        " fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
 
                 st2.executeUpdate();
@@ -164,6 +166,44 @@ public class Bodega extends Propiedad {
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public List<Bodega> devolverBodegas(String disponibilidad) {
+        try{
+            List<Bodega> bodegas = new ArrayList<>();
+            Conexion cx =  new Conexion();
+            Connection con = cx.getConexion();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area, p.tipo_propiedad,\n" +
+                    "       b.tipo\n" +
+                    "FROM propiedad p\n" +
+                    "         INNER JOIN bodega b ON b.id_propiedad = p.id\n" +
+                    "WHERE p.disponible = '"+disponibilidad+"'");
+            while (rs.next()) {
+                /*String identificador,
+                String direccion,
+                Boolean disponible,
+                Double precio,
+                Empleado empleado,
+                LocalDateTime fechaCreacion,
+                DisposicionPropiedad disposicionPropiedad,
+                Float valorArea,
+                TipoArea unidadesArea,
+                TipoBodegaLote tipo
+                DisposicionPropiedad dp = DisposicionPropiedad.valueOf(rs.getString(3));
+                TipoArea ta = TipoArea.valueOf(rs.getString(5));
+                Bodega b = new Bodega("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta, rs.getInt(9), rs.getInt(6), rs.getInt(7), rs.getString(8));
+                bodegas.add(b);*/
+            }
+            rs.close();
+            st.close();
+
+            con.close();
+            return bodegas;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

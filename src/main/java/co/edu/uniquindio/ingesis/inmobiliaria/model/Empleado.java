@@ -21,6 +21,9 @@ public class Empleado extends Persona {
         super(nombre, documento, celular);
     }
 
+    public Empleado() {
+    }
+
     public void registrarPropietario(Propietario propietario){
         try{
             Conexion cx =  new Conexion();
