@@ -21,13 +21,6 @@ class AdministradorTest {
     }
 
     @Test
-    void consultarEmpleados() {
-        Usuario adminUser = new Usuario("admin", "clave", "frase", true);
-        Administrador admin = new Administrador("admin", 1, "300", adminUser);
-        admin.consultarEmpleados();
-    }
-
-    @Test
     void modificarEmpleado() {
         Usuario adminUser = new Usuario("admin", "clave", "frase", true);
         Administrador admin = new Administrador("admin", 1, "300", adminUser);
