@@ -1,6 +1,6 @@
 package co.edu.uniquindio.ingesis.inmobiliaria.controller;
 
-import co.edu.uniquindio.ingesis.inmobiliaria.model.Propiedad;
+import co.edu.uniquindio.ingesis.inmobiliaria.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.layout.GridPane;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class GestionarPropiedad {
@@ -121,7 +122,7 @@ public class GestionarPropiedad {
     private void llenarTabla(List<Propiedad> propiedades) {
         /*tblEstudiantes.setItems(FXCollections.observableArrayList(propiedades));
         tblEstudiantes.refresh();*/
-    }
+    //}
 
     private void limpiarCampos() {
         /*tfNumeroIdentificacion.setText("");
@@ -129,10 +130,48 @@ public class GestionarPropiedad {
         cbGenero.setValue(null);
         lbNotas.setText("");*/
     }
-*/
     @FXML
     public void buttonClicked(Event e){
-    
+        System.out.println(txtTipo.getValue().toString());
+    switch (txtTipo.getValue().toString()){
+        case "Apartamento":
+           /* Apartamento a=new Vivienda("33",txtDireccion.getText(), null,null,
+                    null,null,null,null,
+                    null,22,1,
+                  //  "null");
+           int id_propiedad = a.registrarPropiedad();
+            int id_vivienda = a.registrarVivienda(11);*/
+            break;
+        case "Bodega":
+            Usuario empleUser = new Usuario("emple1@inmo.com", "password", "frase_emple", true);
+            Empleado empleado = new Empleado("empleado1", 1, "300", empleUser);
+            LocalDateTime fecha = LocalDateTime.now();
+            String dp=cbDisposicion.getValue().toString();
+            DisposicionPropiedad dpclass;
+            TipoArea t = TipoArea.M2;
+            TipoBodegaLote tipoBodegaLote=TipoBodegaLote.URBANA;
+            Float valorArea=Float.parseFloat(txtValorArea.getText());
+
+            if(dp=="Venta"){
+                 dpclass=DisposicionPropiedad.VENTA;
+            }else{
+                 dpclass=DisposicionPropiedad.ALQUILER;
+
+            }
+            Bodega b=new Bodega(txtId.getText(),txtDireccion.getText(),true,
+                    Double.parseDouble(txtPrecio.getText()),empleado,fecha,dpclass,valorArea,
+                    t,tipoBodegaLote);
+            int id_propiedad2 = b.registrarPropiedad();
+            b.registrarBodega(id_propiedad2);
+        case "Chalet":
+
+        case "Lote":
+        case "Casa":
+        case "Edificio":
+        case "Parqueadero":
+        default: break;
+    }
+
     }
 
     @FXML
