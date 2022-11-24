@@ -175,26 +175,17 @@ public class Bodega extends Propiedad {
             Conexion cx =  new Conexion();
             Connection con = cx.getConexion();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area, p.tipo_propiedad,\n" +
+            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area,\n" +
                     "       b.tipo\n" +
                     "FROM propiedad p\n" +
                     "         INNER JOIN bodega b ON b.id_propiedad = p.id\n" +
                     "WHERE p.disponible = '"+disponibilidad+"'");
             while (rs.next()) {
-                /*String identificador,
-                String direccion,
-                Boolean disponible,
-                Double precio,
-                Empleado empleado,
-                LocalDateTime fechaCreacion,
-                DisposicionPropiedad disposicionPropiedad,
-                Float valorArea,
-                TipoArea unidadesArea,
-                TipoBodegaLote tipo
                 DisposicionPropiedad dp = DisposicionPropiedad.valueOf(rs.getString(3));
                 TipoArea ta = TipoArea.valueOf(rs.getString(5));
-                Bodega b = new Bodega("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta, rs.getInt(9), rs.getInt(6), rs.getInt(7), rs.getString(8));
-                bodegas.add(b);*/
+                TipoBodegaLote tb = TipoBodegaLote.valueOf(rs.getString(6));
+                Bodega b = new Bodega("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta, tb);
+                bodegas.add(b);
             }
             rs.close();
             st.close();
