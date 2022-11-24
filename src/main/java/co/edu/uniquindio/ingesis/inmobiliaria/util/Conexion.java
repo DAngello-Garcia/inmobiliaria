@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Conexion {
     public Connection getConexion() {
-        String url = "jdbc:postgresql://localhost:5432/inmobiliaria";
+        String url = "jdbc:postgresql://172.17.0.4:5432/inmobiliaria";
         String username = "postgres";
         String password = "password";
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.controller.GestionarPropiedad">
+   <children>
+      <Pane prefHeight="720.0" prefWidth="1280.0" styleClass="background-image-propiedades-disponibles" stylesheets="@../../../../../style/styles.css">
+         <children>
+            <ListView fx:id="listPropiedades" layoutX="8.0" layoutY="138.0" prefHeight="570.0" prefWidth="1262.0" />
+         </children></Pane>
+   </children>
+</AnchorPane>

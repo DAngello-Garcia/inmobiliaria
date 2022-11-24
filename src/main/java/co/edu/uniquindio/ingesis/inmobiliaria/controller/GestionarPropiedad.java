@@ -79,6 +79,7 @@ public class GestionarPropiedad {
     @FXML
     public void initialize() {
         ObservableList<String> tipos = FXCollections.observableArrayList("Apartamento", "Bodega", "Casa", "Chalet", "Edificio", "Lote", "Parqueadero");
+        cbDisposicion.getItems().addAll("Venta","Alquiler");
         txtTipo.setItems(tipos);
         txtNumeroHabitaciones.setVisible(false);
         checkAlcantarillado.setVisible(false);
@@ -104,6 +105,7 @@ public class GestionarPropiedad {
         lbValorAdmin.setVisible(false);
         lblNumPar.setVisible(false);
         lbTipo.setVisible(false);
+        /*
         llenarTabla(INSTANCE.getDiplomado().buscar(null, null, null));
         colNumeroIdentificacion.setCellValueFactory(new PropertyValueFactory<>("numeroIdentificacion"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -112,9 +114,10 @@ public class GestionarPropiedad {
                 .addListener((observable, oldValue, newValue) -> llenarCampos(newValue));
         tfNumeroIdentificacion.setTextFormatter(new TextFormatter<>(TextFormatterUtil::integerFormat));
         tfNombre.setTextFormatter(new TextFormatter<>(TextFormatterUtil::upperCaseFormat));
-        cbGenero.setItems( FXCollections.observableArrayList(Genero.values()) );
+        cbGenero.setItems( FXCollections.observableArrayList(Genero.values()) );*/
     }
 
+    /*
     private void llenarTabla(List<Propiedad> propiedades) {
         tblEstudiantes.setItems(FXCollections.observableArrayList(propiedades));
         tblEstudiantes.refresh();
@@ -126,7 +129,7 @@ public class GestionarPropiedad {
         cbGenero.setValue(null);
         lbNotas.setText("");
     }
-
+*/
     @FXML
     public void mostrarInformacion(ActionEvent actionEvent) {
         Node source = (Node)actionEvent.getSource() ;

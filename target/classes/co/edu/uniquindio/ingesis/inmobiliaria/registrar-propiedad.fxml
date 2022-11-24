@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.controller.GestionarPropiedad">
+   <children>
+      <Pane prefHeight="720.0" prefWidth="1280.0" styleClass="background-image-registrar-propiedad" stylesheets="@../../../../../style/styles.css">
+         <children>
+            <TextField fx:id="txtId" layoutX="373.0" layoutY="164.0" promptText="Escribe el identificador" />
+            <TextField fx:id="txtDireccion" layoutX="373.0" layoutY="249.0" promptText="Escribe la dirección" />
+            <TextField fx:id="txtPrecio" layoutX="373.0" layoutY="379.0" promptText="Escribe el precio" />
+            <TextField fx:id="txtValorArea" layoutX="373.0" layoutY="451.0" promptText="Escribe el área" />
+            <TextField fx:id="txtUnidadesArea" layoutX="373.0" layoutY="528.0" promptText="Escribe las unidades" />
+            <ComboBox fx:id="cbDisposicion" layoutX="372.0" layoutY="315.0" prefWidth="150.0" promptText="Elige la disposición" />
+            <ComboBox fx:id="txtTipo" layoutX="372.0" layoutY="592.0" onAction="#mostrarInformacion" prefWidth="150.0" promptText="Elige el tipo" />
+            <VBox layoutX="669.0" layoutY="121.0" prefHeight="516.0" prefWidth="579.0">
+               <children>
+                  <GridPane fx:id="grid" prefWidth="579.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="txtNumeroHabitaciones" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtNumeroBanos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtMaterial" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtNumeroPisos" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="lbNumHab" text="Número de habitaciones:" />
+                        <Label fx:id="lbNumBa" text="Número de baños" GridPane.rowIndex="1" />
+                        <Label fx:id="lbMaterial" text="Material" GridPane.rowIndex="2" />
+                        <Label fx:id="lablNumPisos" text="Número de pisos" GridPane.rowIndex="3" />
+                        <Label fx:id="lblPiso" layoutX="10.0" layoutY="310.0" text="Piso" GridPane.rowIndex="12" />
+                        <Label fx:id="lbValorAdmin" layoutX="10.0" layoutY="337.0" text="Valor de administración" GridPane.rowIndex="13" />
+                        <Label fx:id="lblNumPar" layoutX="10.0" layoutY="364.0" text="Número de parqueaderos" GridPane.rowIndex="14" />
+                        <Label fx:id="lbTipo" layoutX="10.0" layoutY="365.0" text="Tipo" GridPane.rowIndex="15" />
+                        <TextField fx:id="txtPiso" layoutX="115.0" layoutY="338.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <CheckBox fx:id="checkAlcantarillado" mnemonicParsing="false" text="Alcantarillado" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <CheckBox fx:id="checkAguaPotable" mnemonicParsing="false" text="Agua potable" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <CheckBox fx:id="checkPozoSeptico" layoutX="300.0" layoutY="167.0" mnemonicParsing="false" text="Pozo séptico" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <CheckBox fx:id="checkInternet" layoutX="300.0" layoutY="197.0" mnemonicParsing="false" text="Internet" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <CheckBox fx:id="checkEnergiaElectrica" layoutX="300.0" layoutY="227.0" mnemonicParsing="false" text="Energía eléctrica" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <CheckBox fx:id="checkGasDomiciliario" layoutX="300.0" layoutY="257.0" mnemonicParsing="false" text="Gas domiciliario" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <CheckBox fx:id="checkBalcon" layoutX="300.0" layoutY="287.0" mnemonicParsing="false" text="Balcón" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <CheckBox fx:id="checkAscensor" layoutX="300.0" layoutY="317.0" mnemonicParsing="false" text="Ascensor" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <TextField fx:id="txtValorAdministracion" layoutX="300.0" layoutY="493.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <TextField fx:id="txtNumeroParqueaderos" layoutX="300.0" layoutY="403.0" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <ComboBox fx:id="comboTipoLote" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children></Pane>
+   </children>
+</AnchorPane>
