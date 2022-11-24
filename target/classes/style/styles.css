@@ -1,0 +1,94 @@
+.background-image-vista-inicio {
+    -fx-background-image: url('../images/screen_1.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-login {
+    -fx-background-image: url('../images/screen_2.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-recuperar {
+    -fx-background-image: url('../images/screen_3.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-nueva-contra {
+    -fx-background-image: url('../images/screen_4.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-vista-admin {
+    -fx-background-image: url('../images/screen_5.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-gestion-empleado {
+    -fx-background-image: url('../images/scene_6.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-crear-cuenta {
+    -fx-background-image: url('../images/scene_7.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-detalle-empleado {
+    -fx-background-image: url('../images/scene_8.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-vista-empleado-reporte {
+    -fx-background-image: url('../images/scene_10.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-vista-empleado {
+    -fx-background-image: url('../images/scene_11.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-registrar-propiedad {
+    -fx-background-image: url('../images/scene_12.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-propiedades-disponibles {
+    -fx-background-image: url('../images/scene_13.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-propiedades-no-disponibles {
+    -fx-background-image: url('../images/scene_14.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-detalle-propiedad {
+    -fx-background-image: url('../images/scene_15.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-vista-cliente {
+    -fx-background-image: url('../images/scene_16.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-vista-propietarios {
+    -fx-background-image: url('../images/scene_16.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-registrar-cliente {
+    -fx-background-image: url('../images/scene_17.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-registrar-propietario {
+    -fx-background-image: url('../images/scene_17.png');
+    -fx-background-size: 100% 100%;
+}
+
+.background-image-vista-recibo {
+    -fx-background-image: url('../images/screen_18.png');
+    -fx-background-size: 100% 100%;
+}

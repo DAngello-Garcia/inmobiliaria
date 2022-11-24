@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ingesis.inmobiliaria.CrearCuenta">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background-image-crear-cuenta" stylesheets="@../../../../../style/styles.css">
+         <children>
+            <TextField fx:id="nombre" layoutX="131.0" layoutY="89.0" prefHeight="22.0" prefWidth="163.0" promptText="Escribe tu nombre" />
+            <TextField fx:id="documento" layoutX="131.0" layoutY="132.0" prefHeight="22.0" prefWidth="163.0" promptText="Escribe tu documento" />
+            <TextField fx:id="telefono" layoutX="131.0" layoutY="168.0" prefHeight="22.0" prefWidth="163.0" promptText="Escribe tu telefono" />
+            <TextField layoutX="131.0" layoutY="207.0" prefHeight="22.0" prefWidth="163.0" promptText="Escribe tu email" />
+            <TextField layoutX="131.0" layoutY="244.0" prefHeight="22.0" prefWidth="163.0" promptText="Escribe tu contraseña" />
+            <TextField layoutX="131.0" layoutY="361.0" prefHeight="22.0" prefWidth="163.0" promptText="Escribe tu respuesta" />
+            <ComboBox layoutX="131.0" layoutY="313.0" prefHeight="25.0" prefWidth="163.0" promptText="Elige la pregunta" />
+         </children></Pane>
+   </children>
+</AnchorPane>
