@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +17,6 @@ public class Casa extends Vivienda{
         super(identificador, direccion, disponible, precio, empleado, fechaCreacion, disposicionPropiedad, valorArea, unidadesArea, numeroHabitaciones, numeroBanos, material);
         this.numeroPisos = numeroPisos;
     }
-
     public boolean registrarCasa(int id_vivienda) {
         try{
             Conexion cx =  new Conexion();
@@ -90,7 +91,7 @@ public class Casa extends Vivienda{
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "id_propietario= "+ this.getPropietario().getDocumento() +", " +
+                        " id_propietario = "+ this.getPropietario().getDocumento() +", " +
                         "id_cliente= "+ this.getCliente().getDocumento() +", " +
                         "fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
@@ -126,7 +127,7 @@ public class Casa extends Vivienda{
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "fecha_modificacion='"+this.getFechaModificacion()+"' " +
+                        " fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
 
                 st2.executeUpdate();
@@ -163,6 +164,36 @@ public class Casa extends Vivienda{
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public List<Casa> devolverCasas(String disponibilidad) {
+        try{
+            List<Casa> casas = new ArrayList<>();
+            Conexion cx =  new Conexion();
+            Connection con = cx.getConexion();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area, \n" +
+                    "       v.numero_habitaciones, v.numero_banos, v.material,\n" +
+                    "       c.numero_pisos\n" +
+                    "FROM propiedad p\n" +
+                    "         INNER JOIN vivienda v ON v.id_propiedad = p.id\n" +
+                    "         INNER JOIN casa c ON c.id_vivienda = v.id\n" +
+                    "WHERE p.disponible = '"+disponibilidad+"'");
+            while (rs.next()) {
+                DisposicionPropiedad dp = DisposicionPropiedad.valueOf(rs.getString(3));
+                TipoArea ta = TipoArea.valueOf(rs.getString(5));
+                Casa c = new Casa("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta, rs.getInt(9), rs.getInt(6), rs.getInt(7), rs.getString(8));
+                casas.add(c);
+            }
+            rs.close();
+            st.close();
+
+            con.close();
+            return casas;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

@@ -88,7 +88,7 @@ public class Parqueadero extends Propiedad{
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "id_propietario= "+ this.getPropietario().getDocumento() +", " +
+                        " id_propietario= "+ this.getPropietario().getDocumento() +", " +
                         "id_cliente= "+ this.getCliente().getDocumento() +", " +
                         "fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
@@ -124,7 +124,7 @@ public class Parqueadero extends Propiedad{
                 st.close();
 
                 PreparedStatement st2 = con.prepareStatement("UPDATE historial_propiedad SET" +
-                        "fecha_modificacion='"+this.getFechaModificacion()+"' " +
+                        " fecha_modificacion='"+this.getFechaModificacion()+"' " +
                         "WHERE id_propiedad = "+id_propiedad+"");
 
                 st2.executeUpdate();
