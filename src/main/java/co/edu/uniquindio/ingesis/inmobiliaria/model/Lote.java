@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -163,6 +165,35 @@ public class Lote extends Propiedad{
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public List<Lote> devolverLotes(String disponibilidad) {
+        try{
+            List<Lote> lotes = new ArrayList<>();
+            Conexion cx =  new Conexion();
+            Connection con = cx.getConexion();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area,\n" +
+                    "       l.tipo\n" +
+                    "FROM propiedad p\n" +
+                    "         INNER JOIN lote l ON l.id_propiedad = p.id\n" +
+                    "WHERE p.disponible = '"+disponibilidad+"'");
+            while (rs.next()) {
+                DisposicionPropiedad dp = DisposicionPropiedad.valueOf(rs.getString(3));
+                TipoArea ta = TipoArea.valueOf(rs.getString(5));
+                TipoBodegaLote tb = TipoBodegaLote.valueOf(rs.getString(6));
+                Lote l = new Lote("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta, tb);
+                lotes.add(l);
+            }
+            rs.close();
+            st.close();
+
+            con.close();
+            return lotes;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }
