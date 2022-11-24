@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -160,6 +162,33 @@ public class Parqueadero extends Propiedad{
         }catch(Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public List<Parqueadero> devolverParqueaderos(String disponibilidad) {
+        try{
+            List<Parqueadero> parqueaderos = new ArrayList<>();
+            Conexion cx =  new Conexion();
+            Connection con = cx.getConexion();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT p.direccion, p.precio, p.disposicion_propiedad, p.area, p.unidades_area\n" +
+                    "FROM propiedad p\n" +
+                    "         INNER JOIN parqueadero pa on p.id = pa.id_propiedad\n" +
+                    "WHERE p.disponible = '"+disponibilidad+"'");
+            while (rs.next()) {
+                DisposicionPropiedad dp = DisposicionPropiedad.valueOf(rs.getString(3));
+                TipoArea ta = TipoArea.valueOf(rs.getString(5));
+                Parqueadero p = new Parqueadero("", rs.getString(1), true, rs.getDouble(2), new Empleado(), LocalDateTime.now(), dp, rs.getFloat(4), ta);
+                parqueaderos.add(p);
+            }
+            rs.close();
+            st.close();
+
+            con.close();
+            return parqueaderos;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }
