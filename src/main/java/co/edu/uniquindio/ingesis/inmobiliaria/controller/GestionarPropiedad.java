@@ -4,6 +4,7 @@ import co.edu.uniquindio.ingesis.inmobiliaria.model.Propiedad;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -130,6 +131,11 @@ public class GestionarPropiedad {
         lbNotas.setText("");
     }
 */
+    @FXML
+    public void buttonClicked(Event e){
+    
+    }
+
     @FXML
     public void mostrarInformacion(ActionEvent actionEvent) {
         Node source = (Node)actionEvent.getSource() ;
