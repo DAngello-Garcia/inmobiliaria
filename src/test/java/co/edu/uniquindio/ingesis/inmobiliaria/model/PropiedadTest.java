@@ -139,6 +139,7 @@ class PropiedadTest {
         l.setCliente(cliente);
         l.setDisponible(false);
         l.setFechaModificacion(LocalDateTime.now());
+        System.out.println("alquilarLote: "+l.getIdentificador());
         assertTrue(l.alquilarLote(l.getIdentificador()));
     }
 
@@ -178,6 +179,7 @@ class PropiedadTest {
         TipoArea t = TipoArea.M2;
         LocalDateTime fecha = LocalDateTime.now();
         Casa c = new Casa("casa1", "Calle 123", true, 5000.0, empleado, fecha, dp, 20.5f, t, 2, 2, 2, "material casa");
+        System.out.println("consultarDisponibilidadCasa: "+c.getIdentificador());
         assertTrue(c.consultarDisponibilidadCasa(c.getIdentificador()));
     }
 }

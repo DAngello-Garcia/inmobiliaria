@@ -152,8 +152,8 @@ public class Casa extends Vivienda{
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT p.disponible\n" +
                     "FROM propiedad p\n" +
-                    "INNER JOIN vivienda v ON v.id_propiedad = p.id\n" +
-                    "INNER JOIN casa c on c.id_vivienda = v.id\n" +
+                    "    INNER JOIN vivienda v ON v.id_propiedad = p.id\n" +
+                    "    INNER JOIN casa c on c.id_vivienda = v.id\n" +
                     "WHERE c.id = '"+id+"'");
             if(rs.next()) r = rs.getBoolean(1);
             rs.close();

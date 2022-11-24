@@ -17,10 +17,6 @@ public class Empleado extends Persona {
         this.usuario = usuario;
     }
 
-    public Empleado(String nombre, Integer documento, String celular) {
-        super(nombre, documento, celular);
-    }
-
     public Empleado() {
     }
 
