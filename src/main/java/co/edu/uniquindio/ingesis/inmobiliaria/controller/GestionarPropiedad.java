@@ -120,6 +120,13 @@ public class GestionarPropiedad {
         tblEstudiantes.refresh();
     }
 
+    private void limpiarCampos() {
+        tfNumeroIdentificacion.setText("");
+        tfNombre.setText("");
+        cbGenero.setValue(null);
+        lbNotas.setText("");
+    }
+
     @FXML
     public void mostrarInformacion(ActionEvent actionEvent) {
         Node source = (Node)actionEvent.getSource() ;
@@ -128,5 +135,19 @@ public class GestionarPropiedad {
         System.out.println(col);
         System.out.println(row);
         txtNumeroHabitaciones.setMaxHeight(0d);
+    }
+
+    private void mostrarError(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    private void mostrarMensaje(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
